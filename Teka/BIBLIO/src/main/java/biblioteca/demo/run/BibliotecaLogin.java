@@ -12,9 +12,14 @@ import java.awt.event.ActionEvent;
 public class BibliotecaLogin {
 
 	
-	protected JFrame frmBiblioteca;
-	private JTextField textField;
-	private JTextField textField_1;
+	protected JFrame frmBib;
+	private JTextField text01;
+	private JTextField text02;
+	private JLabel label01;
+	private JLabel label02;
+	private JButton btn01;
+	private BibliotecaController controller;
+	
 	
 	public BibliotecaLogin() {
 		
@@ -23,40 +28,53 @@ public class BibliotecaLogin {
 	
 	private void initialize() {
 		
-		frmBiblioteca=new JFrame();
-		frmBiblioteca.getContentPane().setBackground(Color.ORANGE);
-		frmBiblioteca.getContentPane().setForeground(Color.WHITE);
-		frmBiblioteca.getContentPane().setLayout(null);
+		frmBib=new JFrame();
+		frmBib.getContentPane().setBackground(Color.ORANGE);
+		frmBib.getContentPane().setForeground(Color.WHITE);
+		frmBib.getContentPane().setLayout(null);
+		frmBib.setBounds(100,100,350,300);
+		this.controller=controlador;
 		
 		
-		textField = new JTextField();
-		textField.setBounds(213, 71, 106, 20);
-		frmBiblioteca.getContentPane().add(textField);
-		textField.setColumns(10);
+		text01 = new JTextField();
+		text01.setBounds(113, 71, 106, 20);
+		frmBib.getContentPane().add(text01);
+		text01.setColumns(10);
 		
-		textField_1 = new JTextField();
-		textField_1.setBounds(213, 103, 106, 20);
-		frmBiblioteca.getContentPane().add(textField_1);
-		textField_1.setColumns(10);
+		text02 = new JTextField();
+		text02.setBounds(113, 103, 106, 20);
+		frmBib.getContentPane().add(text02);
+		text02.setColumns(10);
+
 		
-		JLabel lblNewLabel = new JLabel("Login");
-		lblNewLabel.setBounds(157, 74, 46, 14);
-		frmBiblioteca.getContentPane().add(lblNewLabel);
+		label01 = new JLabel("Login");
+		label01.setBounds(57, 74, 46, 14);
+		frmBib.getContentPane().add(label01);
 		
-		JLabel lblNewLabel_1 = new JLabel("Pass");
-		lblNewLabel_1.setBounds(157, 106, 46, 14);
-		frmBiblioteca.getContentPane().add(lblNewLabel_1);
+		label02 = new JLabel("Pass");
+		label02.setBounds(57, 106, 46, 14);
+		frmBib.getContentPane().add(label02);
 		
-		JButton btnNewButton = new JButton("Click");
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		
+		btn01 = new JButton("Click");
+		btn01.setBounds(200,130,70,25);
+		frmBib.getContentPane().add(btn01);
+		
+		btn01.addActionListener(new ActionListener() {
 			
-			AltaLibros atl= new AltaLibros();
-		
-			}
+		public void actionPerformed(ActionEvent e) {
+		//AltaLibros atl= new AltaLibros();    //Abre ventana Altalibros
+		controller.logVista(text01.getText(),text02.getText());	
+	
+		}
 		});
-		btnNewButton.setBounds(305, 153, 65, 23);
-		frmBiblioteca.getContentPane().add(btnNewButton);
-		frmBiblioteca.setVisible(true);
+		frmBib.setVisible(true);
 	}
+	
+	
+	public JFrame getFrame() {
+		return this.frmBib;
+	}
+
+	
 }

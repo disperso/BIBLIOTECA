@@ -20,7 +20,10 @@ private JTextField textField_2;
 private JTextField textField_3;
 private JTextField textField_4;
 private JTextField textField_5;
-		
+private BibliotecaController controller;		
+
+
+
 public AltaLibros() {
 			
 initialize();
@@ -31,7 +34,10 @@ initialize();
 			frmBiblioteca=new JFrame();
 			frmBiblioteca.getContentPane().setBackground(Color.GRAY);
 			frmBiblioteca.getContentPane().setForeground(Color.WHITE);
+			frmBiblioteca.setBounds(100,100,350,300);
 			frmBiblioteca.getContentPane().setLayout(null);
+			
+
 			
 			JLabel lblNewLabel = new JLabel("Título: ");
 			lblNewLabel.setBounds(159, 39, 33, 14);
@@ -68,7 +74,8 @@ initialize();
 			JLabel lblAutor = new JLabel("Autor:");
 			lblAutor.setBounds(159, 81, 33, 14);
 			frmBiblioteca.getContentPane().add(lblAutor);
-	
+			frmBiblioteca.setVisible(true);
 		}
+		
 }
 

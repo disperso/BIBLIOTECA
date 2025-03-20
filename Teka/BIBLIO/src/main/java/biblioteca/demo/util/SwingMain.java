@@ -60,8 +60,12 @@ public class SwingMain {
 		JButton btnNewButton = new JButton("BIENVENIDO A LA GESTIÓN DE BIBLIOTECAS");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//BibliotecaView biblioteca = new BibliotecaView();	
-			    BibliotecaLogin bb=new BibliotecaLogin();
+					
+			    BibliotecaController controller =new BibliotecaController();
+			    BibliotecaLogin vista = new BibliotecaLogin(controller);
+			    BibliotecaModel modelo=new BibliotecaModel();
+				controller.setVistaModel(vista,modelo);
+				BibliotecaLogin bb=new BibliotecaLogin();
 			    
 				//bb.getFrame().setVisible(true);
 			
@@ -78,4 +82,10 @@ public class SwingMain {
 		
 	public JFrame getFrame() { return this.frame; }
 	
+	
+	
+	
+	
+	
+
 }
